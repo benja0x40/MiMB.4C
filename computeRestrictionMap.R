@@ -1,7 +1,7 @@
 # LIBRARIES ####################################################################
 
 message("Loading R/Bioconductor packages")
-suppressPackageStartupMessages(library("MRA.4C"))
+suppressPackageStartupMessages(library("MRA.TA"))
 
 # SCRIPT PARAMETERS ############################################################
 
