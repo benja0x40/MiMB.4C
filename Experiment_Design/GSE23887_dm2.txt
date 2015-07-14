@@ -1,0 +1,9 @@
+ID	REPLICATE	LIBRARY	SAMPLE_PATH	DESIGN_PATH
+WT	r1	control_dna	Raw_Data/GSE23887_RAW/GSM589073_19924202_532.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+WT	r1	4C	Raw_Data/GSE23887_RAW/GSM589073_19924202_635.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+WT	r2	control_dna	Raw_Data/GSE23887_RAW/GSM589074_19941502_532.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+WT	r2	4C	Raw_Data/GSE23887_RAW/GSM589074_19941502_635.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+F12	r1	control_dna	Raw_Data/GSE23887_RAW/GSM589075_21128402_532.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+F12	r1	4C	Raw_Data/GSE23887_RAW/GSM589075_21128402_635.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+F12	r2	control_dna	Raw_Data/GSE23887_RAW/GSM589076_19930502_532.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
+F12	r2	4C	Raw_Data/GSE23887_RAW/GSM589076_19930502_635.pair.gz	Processed_Data/Cleaned/GPL10867_dm2.txt.gz
