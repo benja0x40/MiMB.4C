@@ -108,18 +108,18 @@ if(F) {
 
 # =============================================================================.
 # Identify probes likely associated with good/poor signal based on raw data
-png("probesFitering.r1.png", width=512, height=512)
+pdf("probesFitering.r1.pdf", width=5, height=5)
 r1.EQ <- enrichmentQuality(r1.ct$PM, r1.4C$PM, plots=T) # Replicate 1
 dev.off()
-png("probesFitering.r2.png", width=512, height=512)
+pdf("probesFitering.r2.pdf", width=5, height=5)
 r2.EQ <- enrichmentQuality(r2.ct$PM, r2.4C$PM, plots=T) # Replicate 2
 dev.off()
 
 # Make control plot of normalized 4C signal versus probe distance to site
-png("probeDistanceControls_r1.M.png", width=1536, height=768)
+pdf("probeDistanceControls_r1.M.pdf", width=5, height=5)
 plotProbeDistanceControls(r1.M, rnk=probes.grg$RF_RANK, dis=probes.grg$RF_DIST, dlim=c(-1500, 1500), QF=r1.EQ)
 dev.off()
-png("probeDistanceControls_r2.M.png", width=1536, height=768)
+pdf("probeDistanceControls_r2.M.pdf", width=5, height=5)
 plotProbeDistanceControls(r2.M, rnk=probes.grg$RF_RANK, dis=probes.grg$RF_DIST, dlim=c(-1500, 1500), QF=r2.EQ)
 dev.off()
 
@@ -128,7 +128,6 @@ brks <- 100 * -30:30/2
 hist(x[abs(x)<1500], breaks=brks, freq=F, col=rgb(0,0,0,0), border=rgb(0,0,0,0), ylim=c(0, 0.005))
 hist(x[abs(x)<1500 & r1.EQ$is.best], breaks=brks, freq=F, col=rgb(1,0,0,0.3), border=rgb(0,0,0,0), add=T, axes=F)
 hist(x[abs(x)<1500 & r1.EQ$is.worst], breaks=brks, freq=F, col=rgb(0,1,0,0.3), border=rgb(0,0,0,0), add=T, axes=F)
-
 
 # Reject when fragment too short OR no fragment assigned OR distance to site too large
 reject <- with(probes.grg, RF_LEN < 50 | is.na(RF_ID) | RF_DIST>250)
