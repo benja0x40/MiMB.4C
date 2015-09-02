@@ -1,3 +1,4 @@
+#!/bin/bash
 ################################################################################
 # UCSC's public ftp repository for genome data
 FTP_REPOSITORY="hgdownload.cse.ucsc.edu"
@@ -114,8 +115,8 @@ fi
 if [ -e "$GENOME.fa.gz" ]; then
   gunzip "$GENOME.fa.gz"
   # grep "^>" "$GENOME.fa" | sed -r 's/^>//' | cut -d ' ' -f 1 | sort | uniq > "chr.names"
-  # Split whole genome fasta file
-  csplit -z -f "$GENOME.csplit." "$GENOME.fa" '/^>/' '{*}'
+  # Split whole genome fasta file         [NOTE: csplit -z not supported on OSX]
+  csplit -f "$GENOME.csplit." "$GENOME.fa" '/^>/' '{*}' 
   for FILE in $(ls "$GENOME.csplit."*); do
     # Rename splited fasta files 
     FNAME="$(head -n 1 $FILE | sed -r 's/^>//' | cut -d ' ' -f 1)".fa
