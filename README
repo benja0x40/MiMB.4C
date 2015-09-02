@@ -7,7 +7,8 @@ further informations.
 
 The following dependencies must be installed prior to running the demo:
 - bowtie short read aligner version 1 (http://bowtie-bio.sourceforge.net)
-- R packages: devtools, methods, stringr, getopt, plotrix
+- R environment version 3.2 or higher
+- R packages: devtools, stringr, getopt, plotrix
 - Bioconductor packages: Biostrings, GenomicRanges
 
 ================================================================================
