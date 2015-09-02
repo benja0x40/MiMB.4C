@@ -93,7 +93,7 @@ will show information about available parameters.
 The standalone R scripts updateDesignData.R and computeRestrictionMap.R can also
 provide help on available parameters by using the option -h.
 
-Fo example (in the terminal):
+For example (in the terminal):
   ./importGenome.sh
   Rscript updateDesignData.R -h
   Rscript computeRestrictionMap.R -h

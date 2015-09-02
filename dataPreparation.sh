@@ -21,7 +21,7 @@ Rscript updateDesignData.R -i "$GENOME" -p "Genome_Data/UCSC_$GENOME/Indexes/bow
 mkdir -p Processed_Data/Cleaned/
 FILTER="\texperimental\tISOTHERMAL\t"
 gunzip -c "Processed_Data/Updated/GPL10867_$GENOME.txt.gz" | head -n 1 > "Processed_Data/Cleaned/GPL10867_$GENOME.txt" # copy column names
-gunzip -c "Processed_Data/Updated/GPL10867_$GENOME.txt.gz" | grep -P "$FILTER" >> "Processed_Data/Cleaned/GPL10867_$GENOME.txt"
+gunzip -c "Processed_Data/Updated/GPL10867_$GENOME.txt.gz" | grep -E "$FILTER" >> "Processed_Data/Cleaned/GPL10867_$GENOME.txt"
 # Compress updated design files
 gzip Processed_Data/Cleaned/*.txt
 

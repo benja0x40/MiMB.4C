@@ -21,7 +21,7 @@ cd "$2"
 ls -1 "$4"
 EOF
   # Check if download target is available
-  if ! grep -iP "$5" "$4" &> /dev/null; then
+  if ! grep -iE "$5" "$4" &> /dev/null; then
     echo "Unable to find $5 in $1/$2"
     rm -f "$4"
   else
@@ -74,7 +74,7 @@ fi
 # ------------------------------------------------------------------------------
 rm -f "remote.path"
 # ------------------------------------------------------------------------------
-FASTA_PACKAGE=$(grep -oiP "((chromFa.(zip|tar.gz))|($GENOME.fa.gz))$" "remote.genome.ls")
+FASTA_PACKAGE=$(grep -oiE "((chromFa.(zip|tar.gz))|($GENOME.fa.gz))$" "remote.genome.ls")
 if [[ $FASTA_PACKAGE == "" ]]; then
   echo -e "\tWhole genome fasta package not found\n"
   exit
