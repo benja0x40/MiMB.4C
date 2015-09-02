@@ -114,12 +114,25 @@ if [ -e "chromFa.tar.gz" ]; then
 fi
 if [ -e "$GENOME.fa.gz" ]; then
   gunzip "$GENOME.fa.gz"
+  
   # grep "^>" "$GENOME.fa" | sed -r 's/^>//' | cut -d ' ' -f 1 | sort | uniq > "chr.names"
-  # Split whole genome fasta file         [NOTE: csplit -z not supported on OSX]
-  csplit -f "$GENOME.csplit." "$GENOME.fa" '/^>/' '{*}' 
+  
+  # Split whole genome fasta file
+  if [[ $(uname) == "Linux" ]]; then
+    csplit -f -z "$GENOME.csplit." "$GENOME.fa" '/^>/' '{*}' 
+  fi
+  if [[ $(uname) == "Darwin" ]]; then
+    csplit -f "$GENOME.csplit." "$GENOME.fa" '/^>/' '{4294967295}' 
+  fi
+  
+  # Rename splited fasta files 
   for FILE in $(ls "$GENOME.csplit."*); do
-    # Rename splited fasta files 
-    FNAME="$(head -n 1 $FILE | sed -r 's/^>//' | cut -d ' ' -f 1)".fa
+    if [[ $(uname) == "Linux" ]]; then
+      FNAME="$(head -n 1 $FILE | sed -r 's/^>//' | cut -d ' ' -f 1)".fa
+    fi
+    if [[ $(uname) == "Darwin" ]]; then
+      FNAME="$(head -n 1 $FILE | sed -E 's/^>//' | cut -d ' ' -f 1)".fa
+    fi
     mv -f $FILE $FNAME
   done
 fi
@@ -140,7 +153,12 @@ cd $CHRF
 # ----------------------------------------------------------------------------
 # Extract chromosome names, sizes and fasta labels
 for FILE in $(ls *.fa); do
-  CHRNAME=$(head -n 1 $FILE | sed -r 's/^>//' | cut -d ' ' -f 1)
+  if [[ $(uname) == "Linux" ]]; then
+    CHRNAME=$(head -n 1 $FILE | sed -r 's/^>//' | cut -d ' ' -f 1)
+  fi
+  if [[ $(uname) == "Darwin" ]]; then
+    CHRNAME=$(head -n 1 $FILE | sed -E 's/^>//' | cut -d ' ' -f 1)
+  fi
   CHRSIZE=$(grep -v "^>" $FILE | wc -m)
   NBLINES=$(grep -v "^>" $FILE | wc -l)
   echo -e "$CHRNAME\t$CHRSIZE\t$NBLINES" >> "../chrom.sizes"
