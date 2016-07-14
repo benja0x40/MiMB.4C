@@ -1,2 +1,22 @@
-1. remove package methods from prerequisites in the methods section of the main
-  manuscript (methods is a base package in R)
+================================================================================
+Source Code
+--------------------------------------------------------------------------------
+1. move/save all outputs of enrichmentAnalysis.R to an "Outputs" folder
+
+================================================================================
+Testing
+--------------------------------------------------------------------------------
+1. finish testing demo execution under OSX on macs
+
+================================================================================
+README
+--------------------------------------------------------------------------------
+1. mention OSX compatibility 
+2. provide quick help and links for installing R+Rstudio under Ubuntu and OSX
+
+================================================================================
+Manuscript
+--------------------------------------------------------------------------------
+1. remove package methods from prerequisites in the methods section (methods
+  is a base package in R)
+2. add OSX compatibility statement

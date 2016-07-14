@@ -1,5 +1,26 @@
 #!/bin/bash
 ################################################################################
+# NOTES
+# //////////////////////////////////////////////////////////////////////////////
+# Genome Assembly Terminology
+#
+# chr*_random - are called "unlocalized" sequences. The chromosome is known,
+# but not the location on the chromosome.
+#
+# chrUn_* - are called "unplaced" sequences. They probably belong to the
+# sequenced genome, but placement is unknown at this time.
+#
+# The GL numbers (or other types of numbers) in these names are the genbank
+# identification numbers which can be used in a nucleotide search at Entrez.
+#
+# chr*_hap - are alternative haplotype sequences
+#
+#http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/info/definitions.shtml
+################################################################################
+# COMMAND LINE ARGUMENTS
+# $1 genome name
+# $2 local path
+################################################################################
 # UCSC's public ftp repository for genome data
 FTP_REPOSITORY="hgdownload.cse.ucsc.edu"
 # ------------------------------------------------------------------------------
@@ -36,6 +57,19 @@ EOF
 bowtie_index () {
   mkdir -p $2/bowtie
   bowtie-build -f $1 $2/bowtie/`basename $1 '.fa'`
+}
+# //////////////////////////////////////////////////////////////////////////////
+# $1 = path to NOT compressed fasta file
+# $2 = path to folder for alignment indexes
+# $3 = bwtsw for bwtsw indexation algorithm, anything else => IS algorithm
+# ------------------------------------------------------------------------------
+bwa_index () {
+  mkdir -p $2/bwa
+  if [[ $3 == "bwtsw" ]]; then
+    bwa index -p $2/bwa/`basename $1 ".fa"` -a bwtsw $1
+  else
+    bwa index -p $2/bwa/`basename $1 ".fa"` -a is $1
+  fi
 }
 ################################################################################
 # MAIN
