@@ -4,7 +4,7 @@ Chromosome Conformation Capture on Chip (4C): Data Processing
 ## A. Introduction and prerequisite ##
 
 This archive contains scripts and initial data necessary to perform a demo
-analysis of 4C data. See the [references][1] below for
+analysis of 4C data. See the [references](#1) below for
 further informations.
 
 The following dependencies must be installed prior to running the demo:
@@ -16,9 +16,10 @@ The following dependencies must be installed prior to running the demo:
 
 ## B. Quick start ##
 
-Running a demo on the 4C study from [Bantignies et al., 2011][2]
+Running a demo on the 4C study from [Bantignies et al., 2011](#2)
 
-1. Install the MRA.TA package. In the R environment:
+1. Install the package [MRA.TA](https://github.com/benja0x40/MRA.TA) in the R
+environment:
 
 ```R
 library("devtools")
@@ -103,15 +104,15 @@ also provide help on available parameters by using the option -h.
 For example (in the terminal):
 
 ```bash
-  ./importGenome.sh
-  Rscript updateDesignData.R -h
-  Rscript computeRestrictionMap.R -h
+./importGenome.sh
+Rscript updateDesignData.R -h
+Rscript computeRestrictionMap.R -h
 ```
 
 ## E. References ##
 
-[1]: Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
+<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 links: [publisher](https://www.springer.com/gp/book/9781493963782)
 
-[2]: Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell 144, 214–26 (2011).  
+<a name="2"></a>2. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell 144, 214–26 (2011).  
 links: [publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892) | [pdf](https://www.researchgate.net/publication/49762071_Polycomb-Dependent_Regulatory_Contacts_between_Distant_Hox_Loci_in_Drosophila)

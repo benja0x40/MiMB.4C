@@ -35,3 +35,4 @@ tar xvf "$ACCESSION""_RAW.tar" -C "$ACCESSION""_RAW"
 cd "$CURRENT_WD"
 # ==============================================================================
 
+exit

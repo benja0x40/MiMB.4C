@@ -36,4 +36,4 @@ bowtie -f -n 1 -p 6 "Genome_Data/UCSC_$GENOME/Indexes/bowtie/genome" "4C_Bait_Se
 # -----------------------------------------------------------------------------.
 Rscript computeRestrictionMap.R -i "$GENOME" -n "$ENZYME" -m "$CUTDNA" -s "Genome_Data/UCSC_$GENOME/genome.fa.gz"
 
-
+exit
