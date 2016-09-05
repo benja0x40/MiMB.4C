@@ -1,22 +1,28 @@
 Chromosome Conformation Capture on Chip (4C): Data Processing
 ================================================================================
 
-## A. Introduction and prerequisite ##
+MiMB.4C is a collection of bash and R scripts implementing our data processing
+protocol for Chromosome Conformation Capture on Chip (4C). This include 
+normalization, probre selection and multi-resolution methods that are
+available in the R package [MRA.TA](https://github.com/benja0x40/MRA.TA).
 
-This archive contains scripts and initial data necessary to perform a demo
-analysis of 4C data. See the [references](#1) below for
-further informations.
+See [Leblanc et al., 2016](#1) for a detailed presentation of the protocol and
+underlying methods, which consist in improved versions of the 4C data
+analyses procedures originally used in [Bantignies et al., 2011](#2).
 
-The following dependencies must be installed prior to running the demo:
+A demo analysis based on these 4C data from *Drosophila* embryos can be run as
+follows.
 
-  - bowtie short read aligner version 1 (http://bowtie-bio.sourceforge.net)
-  - R environment version 3.2 or higher
-  - R packages: devtools, stringr, getopt, plotrix
-  - Bioconductor packages: Biostrings, GenomicRanges
+### A. Prerequisites ###
 
-## B. Quick start ##
+These dependencies need to be installed before using MiMB.4C:
 
-Running a demo on the 4C study from [Bantignies et al., 2011](#2)
+  - `bowtie` short read aligner version 1 (http://bowtie-bio.sourceforge.net)
+  - R environment version 3.x or higher
+  - R packages: `devtools`, `stringr`, `getopt`, `plotrix`
+  - [Bioconductor](http://www.bioconductor.org/) packages: `Biostrings`, `GenomicRanges`
+
+### B. Quick start ###
 
 1. Install the package [MRA.TA](https://github.com/benja0x40/MRA.TA) in the R
 environment:
@@ -26,17 +32,20 @@ library("devtools")
 install_github("benja0x40/MRA.TA")
 ```
 
-2. Run the demo. In the terminal (bash), with current working directory at the
-root of MiMB.4C:
+2. Clone or download and decompress the MiMB.4C repository
+
+
+3. Run the demo in a terminal (bash), with current working directory at the
+root of the decompressed MiMB.4C folder:
 
 ```bash
 ./dataPreparation.sh
 Rscript enrichmentAnalysis.R
 ```
 
-## C. Content of MiMB.4C ##
+### C. Content of MiMB.4C ###
 
-### 1. Bash scripts ###
+#### 1. Bash scripts ####
 
   * `importGenome.sh`
   
@@ -44,7 +53,7 @@ Rscript enrichmentAnalysis.R
   
   * `importRawData.sh`
   
-    Tool to facilitate downloading of the demo data from GEO
+    Tool to facilitate downloading of the [Bantignies et al., 2011](#2) demo data from GEO
   
   * `dataPreparation.sh`
   
@@ -55,7 +64,7 @@ Rscript enrichmentAnalysis.R
     mapping bait sequence (Fab7) to the genome, and computing the restriction
     map associated to the 4C protocol (DpnII).
   
-### 2. R scripts ###
+#### 2. R scripts ####
 
   * `updateDesignData.R`
   
@@ -78,12 +87,12 @@ Rscript enrichmentAnalysis.R
     analysis of the 4C enrichments (see the reference publication in section E
     below for more informations).
   
-### 3. Default/demo file organisation (before execution) ###
+#### 3. File organisation (before execution) ####
 
     4C_Bait_Sequences => Fasta file of 4C bait sequence and its bowtie alignments
     Experiment_Design => Tables defining necessary 4C experiment data annotations
 
-### 4. Default/demo file organisation (after execution) ###
+#### 4. File organisation (after execution) ####
 
     Genome_Data    => UCSC genome data and corresponding bowtie indexes
     UCSC_dm6       => dm6 assembly of the Drosophila melanogaster genome
@@ -94,7 +103,7 @@ Rscript enrichmentAnalysis.R
     Updated        => Updated microarray design data (new probes coordinates)
     Cleaned        => Updated array design filtered out for non-relevant probes
 
-## D. Getting information about bash and R script parameters ##
+### D. Getting information about bash and R script parameters ###
 
 Runinng `importGenome.sh` or `importRawData.sh` bash scripts without any
 parameters will show information about available parameters.
@@ -109,7 +118,7 @@ Rscript updateDesignData.R -h
 Rscript computeRestrictionMap.R -h
 ```
 
-## E. References ##
+### E. References ###
 
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 links: [publisher](https://www.springer.com/gp/book/9781493963782)
