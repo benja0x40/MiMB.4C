@@ -1,24 +1,33 @@
 Chromosome Conformation Capture on Chip (4C): Data Processing
 ================================================================================
 
-MiMB.4C is a collection of bash and R scripts implementing our data processing
-protocol for Chromosome Conformation Capture on Chip (4C). This include 
-normalization, probre selection and multi-resolution methods that are
-available in the R package [MRA.TA](https://github.com/benja0x40/MRA.TA).
+The `MiMB.4C` repository contains a collection of bash and R scripts implementing
+our data processing protocol for Chromosome Conformation Capture on Chip (4C).
+See [Leblanc et al., 2016](#1) for a detailed presentation of this protocol and
+underlying methods, which consists in improved versions of the 4C data
+analyses procedures we originally used in [Bantignies et al., 2011](#2).
 
-See [Leblanc et al., 2016](#1) for a detailed presentation of the protocol and
-underlying methods, which consist in improved versions of the 4C data
-analyses procedures originally used in [Bantignies et al., 2011](#2).
+These procedures, including normalization, probre selection and
+multi-resolution analysis, are available via the standalone R package
+[MRA.TA](https://github.com/benja0x40/MRA.TA), whereas the `MiMB.4C`
+repository illustrates a complete workflow for 4C data processing.
 
-A demo analysis based on these 4C data from *Drosophila* embryos can be run as
-follows.
+Below are two example of results generated using the
+[MRA.TA](https://github.com/benja0x40/MRA.TA) package and based
+on 4C data in mouse from [Simonis et al., 2006](#3) (top panel) and
+[Schoenfelder et al., 2009](#4) (bottom panel). 
+
+![](./images/examples/MiMB.4C_Examples_smallsize.png "")
+
+A complete demo analysis based on our 4C data in *Drosophila* embryos can be
+run as indicated in the following sections.
 
 ### A. Prerequisites ###
 
-These dependencies need to be installed before using MiMB.4C:
+These dependencies need to be installed before using `MiMB.4C`:
 
-  - `bowtie` short read aligner version 1 (http://bowtie-bio.sourceforge.net)
-  - R environment version 3.x or higher
+  - `bowtie` short read aligner version 1.x (http://bowtie-bio.sourceforge.net)
+  - R environment version 3.x
   - R packages: `devtools`, `stringr`, `getopt`, `plotrix`
   - [Bioconductor](http://www.bioconductor.org/) packages: `Biostrings`, `GenomicRanges`
 
@@ -32,11 +41,11 @@ library("devtools")
 install_github("benja0x40/MRA.TA")
 ```
 
-2. Clone or download and decompress the MiMB.4C repository
+2. Clone or download and decompress the `MiMB.4C` repository
 
 
 3. Run the demo in a terminal (bash), with current working directory at the
-root of the decompressed MiMB.4C folder:
+root of the decompressed `MiMB.4C` folder:
 
 ```bash
 ./dataPreparation.sh
@@ -49,11 +58,11 @@ Rscript enrichmentAnalysis.R
 
   * `importGenome.sh`
   
-    Generic tool for automated download of UCSC genomes
+    Tool for automated download of UCSC genomes and index creation for bowtie.
   
   * `importRawData.sh`
   
-    Tool to facilitate downloading of the [Bantignies et al., 2011](#2) demo data from GEO
+    Tool to facilitate downloading of the [Bantignies et al., 2011](#2) 4C data from GEO.
   
   * `dataPreparation.sh`
   
@@ -121,7 +130,14 @@ Rscript computeRestrictionMap.R -h
 ### E. References ###
 
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
-links: [publisher](https://www.springer.com/gp/book/9781493963782)
+[publisher](https://www.springer.com/gp/book/9781493963782)
 
-<a name="2"></a>2. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell 144, 214–26 (2011).  
-links: [publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892) | [pdf](https://www.researchgate.net/publication/49762071_Polycomb-Dependent_Regulatory_Contacts_between_Distant_Hox_Loci_in_Drosophila)
+<a name="2"></a>2. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
+[publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892)
+
+<a name="3"></a>3.Simonis M., Klous P., Splinter E., Moshkin Y., Willemsen R., de Wit E., van Steensel B., de Laat W. *Nuclear organization of active and inactive chromatin domains uncovered by chromosome conformation capture-on-chip (4C).* Nature Genetics (2006).  
+[publisher](http://dx.doi.org/10.1038/ng1896) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/17033623)
+
+<a name="4"></a>4. Schoenfelder S., Sexton T., Chakalova L., Cope N.F., Horton A., Andrews S., Kurukuti S., Mitchell J.A., Umlauf D., Dimitrova D.S., Eskiw C.H., Luo Y., Wei C.L., Ruan Y., Bieker J.J, Fraser P. *Preferential associations between co-regulated genes reveal a transcriptional interactome in erythroid cells.* Nature Genetics (2009).  
+[publisher](http://dx.doi.org/10.1038/ng.496) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/20010836)
+
