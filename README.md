@@ -78,7 +78,7 @@ Rscript enrichmentAnalysis.R
   
   * `importRawData.sh`
   
-    Tool to facilitate downloading of the [Bantignies et al., 2011](#2) 4C data from GEO.
+    Tool to facilitate downloading of the 4C data used for demo from GEO.
   
   * `dataPreparation.sh`
   
@@ -145,8 +145,8 @@ Rscript computeRestrictionMap.R -h
 
 ### E. References ###
 
-<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter to appear in *Polycomb Group Proteins.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
-[publisher](https://www.springer.com/gp/book/9781493963782)
+<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
+[publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
 
 <a name="2"></a>2. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
 [publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892)
