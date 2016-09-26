@@ -1,26 +1,42 @@
 Chromosome Conformation Capture on Chip (4C): Data Processing
 ================================================================================
 
-The `MiMB.4C` repository contains a collection of bash and R scripts implementing
-our data processing protocol for Chromosome Conformation Capture on Chip (4C).
-See [Leblanc et al., 2016](#1) for a detailed presentation of this protocol and
-underlying methods, which consists in improved versions of the 4C data
-analyses procedures we originally used in [Bantignies et al., 2011](#2).
+This `MiMB.4C` repository contains a collection of bash and R scripts
+implementing our data processing protocol for Chromosome Conformation Capture
+on Chip (4C). See [Leblanc et al., 2016](#1) for a brief background on the 4C
+technique itself and the detailed presentation of this protocol.
 
-These procedures, including normalization, probre selection and
-multi-resolution analysis, are available via the standalone R package
-[MRA.TA](https://github.com/benja0x40/MRA.TA), whereas the `MiMB.4C`
-repository illustrates a complete workflow for 4C data processing.
+The underlying computational methods consist in improved versions of the
+procedures used in the study from [Bantignies et al., 2011](#2).
+These methods, including normalization, probe selection and multi-resolution
+visualization and segmentation of the 4C profile, are available via the
+standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA),
+whereas the scripts provided in the `MiMB.4C` repository illustrate a complete
+workflow for 4C data processing.
 
-Below are two example of results generated using the
-[MRA.TA](https://github.com/benja0x40/MRA.TA) package and based
+Below are two example of results generated using these methods based
 on 4C data in mouse from [Simonis et al., 2006](#3) (top panel) and
-[Schoenfelder et al., 2009](#4) (bottom panel). 
+[Schoenfelder et al., 2009](#4) (bottom panel).
 
 ![](./images/examples/MiMB.4C_Examples_smallsize.png "")
 
-A complete demo analysis based on our 4C data in *Drosophila* embryos can be
-run as indicated in the following sections.
+Both panels represent the mouse chromosome 7 on the horizontal axis and the
+resolution of analysis on the vertical axis, in number of microarray probes.
+Frequencies of interactions between the 4C bait sequence (which was targeting
+the beta globin locus in both studies) and remote sequences along the chromosome
+are indicated by colors, from light blue for the weakest levels to dark red for
+the strongest ones.  
+The whole colormaps represent statistical scores 
+reflecting 4C interaction frequencies for each genonic location and
+considering resolutions ranging from single probe to approximately 5000 probes.
+The 3 tracks below each colormap show alternative segmentations of the
+significant interactions. From top to bottom: segmentation at maximal scale or 
+at maximal resolution resulting from our protocol, and segmentation reported in
+the original studies using former data analysis methods.
+
+A complete demo analysis based on the 4C data in *Drosophila* embryos from
+[Bantignies et al., 2011](#2) can be run as indicated in the following
+sections.
 
 ### A. Prerequisites ###
 
@@ -92,8 +108,8 @@ Rscript enrichmentAnalysis.R
   
     Workflow R script to be executed secondly (after dataPreparation.sh) when
     running the demo analysis.
-    This script chains raw normalization, probes filtering and multi-resolution
-    analysis of the 4C enrichments (see the reference publication in section E
+    This script chains normalization, probes filtering and multi-resolution
+    analysis of the 4C enrichments (see the first reference in section E
     below for more informations).
   
 #### 3. File organisation (before execution) ####
