@@ -1,4 +1,10 @@
 # =============================================================================.
+# This is a workflow script to be executed secondly (after dataPreparation.sh)
+# when running the demo analysis. The script chains normalization, probes
+# filtering and multi-resolution analysis of the 4C enrichments.
+# =============================================================================.
+
+# =============================================================================.
 # Load R package
 # -----------------------------------------------------------------------------.
 library("MRA.TA")

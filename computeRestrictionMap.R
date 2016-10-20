@@ -1,3 +1,9 @@
+# =============================================================================.
+# This script computes the genomic coordinates of all restriction sites for a
+# given restriction enzyme. Restriction sites are defined by the short DNA motif
+# (4 to 6bp in common protocols) specifically targeted by the enzyme.
+# =============================================================================.
+
 # LIBRARIES ####################################################################
 
 message("Loading R/Bioconductor packages")
@@ -22,14 +28,14 @@ script.args = matrix(c(
 Cfg <- processArgs(script.args)
 Cfg$script.args <- NULL
 # -----------------------------------------------------------------------------.
-# DEBUG VALUES                                          # *** WARNING/TODO *** #
-if(is.na(Cfg$script.name)) {
-  Cfg$genome.id    <- "dm6"
-  Cfg$enzyme.name  <- "DpnII"
-  Cfg$enzyme.motif <- "GATC"
-  Cfg$genome.sequence.path  <- "Genome_Data/UCSC_dm6/genome.fa.gz"
-  Cfg$restriction.data.path <- "Processed_Data/RestrictionMap/"
-}
+# DEBUG VALUES (only usefull for the MiMB.4C package development in RStudio)
+# if(is.na(Cfg$script.name)) {
+#   Cfg$genome.id    <- "dm6"
+#   Cfg$enzyme.name  <- "DpnII"
+#   Cfg$enzyme.motif <- "GATC"
+#   Cfg$genome.sequence.path  <- "Genome_Data/UCSC_dm6/genome.fa.gz"
+#   Cfg$restriction.data.path <- "Processed_Data/RestrictionMap/"
+# }
 # =============================================================================.
 # Parameters validation
 lbl.lst <- c("genome.id", "enzyme.name", "enzyme.motif", "genome.sequence.path")

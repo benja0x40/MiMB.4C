@@ -5,9 +5,11 @@ This `MiMB.4C` repository contains a collection of bash and R scripts
 implementing our data processing protocol for Chromosome Conformation Capture
 on Chip (4C). See [Leblanc et al., 2016](#1) for a brief background on the 4C
 technique itself and the detailed presentation of this protocol.
+For an extensive perspective on Chromosome Conformation Capture technologies,
+see for instance the review from [Denker & de Laat, 2016](#2).
 
-The underlying computational methods consist in improved versions of the
-procedures used in the study from [Bantignies et al., 2011](#2).
+Computational methods undelying this protocol consist in improved versions of
+the procedures used in the study from [Bantignies et al., 2011](#3).
 These methods, including normalization, probe selection and multi-resolution
 visualization and segmentation of the 4C profile, are available via the
 standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA),
@@ -15,8 +17,8 @@ whereas the scripts provided in the `MiMB.4C` repository illustrate a complete
 workflow for 4C data processing.
 
 Below are two example of results generated using these methods based
-on 4C data in mouse from [Simonis et al., 2006](#3) (top panel) and
-[Schoenfelder et al., 2009](#4) (bottom panel).
+on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
+[Schoenfelder et al., 2009](#5) (bottom panel).
 
 ![](./images/examples/MiMB.4C_Examples_smallsize.png "")
 
@@ -34,9 +36,10 @@ significant interactions. From top to bottom: segmentation at maximal scale or
 at maximal resolution resulting from our protocol, and segmentation reported in
 the original studies using former data analysis methods.
 
-A complete demo analysis based on the 4C data in *Drosophila* embryos from
-[Bantignies et al., 2011](#2) can be run as indicated in the following
-sections.
+A complete demo analysis based on the 4C data in *Drosophila* anterior larval
+tissues from [Bantignies et al., 2011](#3) can be run as indicated in the
+following sections.
+
 
 ### A. Prerequisites ###
 
@@ -148,12 +151,15 @@ Rscript computeRestrictionMap.R -h
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 [publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
 
-<a name="2"></a>2. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
+<a name="2"></a>2. Denker A., de Laat W. *The second decade of 3C technologies: detailed insights into nuclear organization.* Genes & Development (2016).  
+[publisher](http://dx.doi.org/10.1101/gad.281964.116) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27340173)
+
+<a name="3"></a>3. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
 [publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892)
 
-<a name="3"></a>3.Simonis M., Klous P., Splinter E., Moshkin Y., Willemsen R., de Wit E., van Steensel B., de Laat W. *Nuclear organization of active and inactive chromatin domains uncovered by chromosome conformation capture-on-chip (4C).* Nature Genetics (2006).  
+<a name="4"></a>4. Simonis M., Klous P., Splinter E., Moshkin Y., Willemsen R., de Wit E., van Steensel B., de Laat W. *Nuclear organization of active and inactive chromatin domains uncovered by chromosome conformation capture-on-chip (4C).* Nature Genetics (2006).  
 [publisher](http://dx.doi.org/10.1038/ng1896) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/17033623)
 
-<a name="4"></a>4. Schoenfelder S., Sexton T., Chakalova L., Cope N.F., Horton A., Andrews S., Kurukuti S., Mitchell J.A., Umlauf D., Dimitrova D.S., Eskiw C.H., Luo Y., Wei C.L., Ruan Y., Bieker J.J, Fraser P. *Preferential associations between co-regulated genes reveal a transcriptional interactome in erythroid cells.* Nature Genetics (2009).  
+<a name="5"></a>5. Schoenfelder S., Sexton T., Chakalova L., Cope N.F., Horton A., Andrews S., Kurukuti S., Mitchell J.A., Umlauf D., Dimitrova D.S., Eskiw C.H., Luo Y., Wei C.L., Ruan Y., Bieker J.J, Fraser P. *Preferential associations between co-regulated genes reveal a transcriptional interactome in erythroid cells.* Nature Genetics (2009).  
 [publisher](http://dx.doi.org/10.1038/ng.496) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/20010836)
 

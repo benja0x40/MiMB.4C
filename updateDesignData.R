@@ -1,3 +1,10 @@
+# =============================================================================.
+# This script updates micro array design information for new genome releases.
+# It relies on the bowtie aligner to map probe sequences on a chosen assembly of
+# the genome for a precise update of genomic coordinates addressed by
+# the microarray platform.
+# =============================================================================.
+
 # LIBRARIES ####################################################################
 
 message("Loading R/Bioconductor packages")
