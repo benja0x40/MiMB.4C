@@ -151,7 +151,7 @@ Rscript computeRestrictionMap.R -h
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 [publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
 
-<a name="2"></a>2. Denker A., de Laat W. *The second decade of 3C technologies: detailed insights into nuclear organization.* Genes & Development (2016).  
+<a name="2"></a>2. Denker A. & de Laat W., *The second decade of 3C technologies: detailed insights into nuclear organization.* Genes & Development (2016).  
 [publisher](http://dx.doi.org/10.1101/gad.281964.116) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27340173)
 
 <a name="3"></a>3. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
