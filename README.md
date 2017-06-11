@@ -1,22 +1,27 @@
 Chromosome Conformation Capture on Chip (4C): Data Processing
 ================================================================================
 
-This `MiMB.4C` repository contains a collection of bash and R scripts
+### Overview ###
+
+The `MiMB.4C` repository contains a collection of bash and R scripts
 implementing our data processing protocol for Chromosome Conformation Capture
-on Chip (4C). See [Leblanc et al., 2016](#1) for a brief background on the 4C
-technique itself and the detailed presentation of this protocol.
+on Chip (4C).
+See [Leblanc et al., 2016](#1) for a brief background on the 4C technique
+itself and the detailed presentation of this protocol.
 For an extensive perspective on Chromosome Conformation Capture technologies,
 see for instance the review from [Denker & de Laat, 2016](#2).
 
 Computational methods undelying this protocol consist in improved versions of
 the procedures used in the study from [Bantignies et al., 2011](#3).
 These methods, including normalization, probe selection and multi-resolution
-visualization and segmentation of the 4C profile, are available via the
+visualization and segmentation of the 4C profiles, are available via the
 standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA),
 whereas the scripts provided in the `MiMB.4C` repository illustrate a complete
 workflow for 4C data processing.
 
-Below are two example of results generated using these methods based
+### Examples ###
+
+Below are two example of results generated using the  `MiMB.4C` protocol based
 on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
 [Schoenfelder et al., 2009](#5) (bottom panel).
 
@@ -27,10 +32,11 @@ resolution of analysis on the vertical axis, in number of microarray probes.
 Frequencies of interactions between the 4C bait sequence (which was targeting
 the beta globin locus in both studies) and remote sequences along the chromosome
 are indicated by colors, from light blue for the weakest levels to dark red for
-the strongest ones.  
-The whole colormaps represent statistical scores 
-reflecting 4C interaction frequencies for each genonic location and
-considering resolutions ranging from single probe to approximately 5000 probes.
+the strongest ones.
+
+More precisely, the colormaps represent statistical scores reflecting 4C
+interaction frequencies for each genonic location and considering resolutions
+ranging from single probe to approximately 5000 probes.
 The 3 tracks below each colormap show alternative segmentations of the
 significant interactions. From top to bottom: segmentation at maximal scale or 
 at maximal resolution resulting from our protocol, and segmentation reported in
@@ -40,38 +46,59 @@ A complete demo analysis based on the 4C data in *Drosophila* anterior larval
 tissues from [Bantignies et al., 2011](#3) can be run as indicated in the
 following sections.
 
+### Quick start ###
 
-### A. Prerequisites ###
-
-These dependencies need to be installed before using `MiMB.4C`:
-
-  - `bowtie` short read aligner version 1.x (http://bowtie-bio.sourceforge.net)
-  - R environment version 3.x
-  - R packages: `devtools`, `stringr`, `getopt`, `plotrix`
-  - [Bioconductor](http://www.bioconductor.org/) packages: `Biostrings`, `GenomicRanges`
-
-### B. Quick start ###
-
-1. Install the package [MRA.TA](https://github.com/benja0x40/MRA.TA) in the R
-environment:
+1. Run the R code below to install the
+[MRA.TA](https://github.com/benja0x40/MRA.TA) package.  
+If the installation fails, try to install dependencies manually as indicated
+in the next section.
 
 ```R
 library("devtools")
 install_github("benja0x40/MRA.TA")
 ```
 
-2. Clone or download and decompress the `MiMB.4C` repository
+2. Clone or download and decompress the `MiMB.4C` repository.
 
 
 3. Run the demo in a terminal (bash), with current working directory at the
-root of the decompressed `MiMB.4C` folder:
+root of the decompressed `MiMB.4C` folder.
 
 ```bash
 ./dataPreparation.sh
 Rscript enrichmentAnalysis.R
 ```
 
-### C. Content of MiMB.4C ###
+### Dependencies ###
+
+  - `bowtie` short read aligner version 1.x (http://bowtie-bio.sourceforge.net)
+  - [R environment](https://www.r-project.org/) version 3.x
+  - CRAN packages `devtools`, `stringr`, `getopt`, `plotrix`
+  - [Bioconductor](http://www.bioconductor.org/) packages
+    `Biostrings`, `GenomicRanges`
+
+Run the R code below to install CRAN and Bioconductor package dependencies
+for `MiMB.4C`.
+
+```R
+# Already installed
+pkg <- installed.packages()[, "Package"]
+
+# CRAN packages
+lst <- c("devtools", "stringr", "getopt", "plotrix")
+lst <- setdiff(lst, pkg)
+if(length(lst) > 0) install.packages(lst, repos = "https://cloud.r-project.org/")
+
+# Bioconductor packages
+lst <- c("Biostrings", "GenomicRanges")
+lst <- setdiff(lst, pkg)
+if(length(lst) > 0) {
+  source("https://bioconductor.org/biocLite.R")
+  biocLite(lst)
+}
+```
+
+### Content of MiMB.4C ###
 
 #### 1. Bash scripts ####
 
@@ -131,7 +158,7 @@ Rscript enrichmentAnalysis.R
     Updated        => Updated microarray design data (new probes coordinates)
     Cleaned        => Updated array design filtered out for non-relevant probes
 
-### D. Getting information about bash and R script parameters ###
+### Getting information about bash and R script parameters ###
 
 Runinng `importGenome.sh` or `importRawData.sh` bash scripts without any
 parameters will show information about available parameters.
@@ -146,7 +173,7 @@ Rscript updateDesignData.R -h
 Rscript computeRestrictionMap.R -h
 ```
 
-### E. References ###
+### References ###
 
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 [publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
