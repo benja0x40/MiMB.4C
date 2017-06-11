@@ -35,7 +35,7 @@ are indicated by colors, from light blue for the weakest levels to dark red for
 the strongest ones.
 
 More precisely, the colormaps represent statistical scores reflecting 4C
-interaction frequencies for each genonic location and considering resolutions
+interaction frequencies for each genomic location and considering resolutions
 ranging from single probe to approximately 5000 probes.
 The 3 tracks below each colormap show alternative segmentations of the
 significant interactions. From top to bottom: segmentation at maximal scale or 
