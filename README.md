@@ -76,6 +76,7 @@ Rscript enrichmentAnalysis.R
   - CRAN packages `devtools`, `stringr`, `getopt`, `plotrix`
   - [Bioconductor](http://www.bioconductor.org/) packages
     `Biostrings`, `GenomicRanges`
+  - GitHub R package [MRA.TA](https://github.com/benja0x40/MRA.TA)
 
 Run the R code below to install CRAN and Bioconductor package dependencies
 for `MiMB.4C`.
