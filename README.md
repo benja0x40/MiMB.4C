@@ -174,6 +174,14 @@ Rscript updateDesignData.R -h
 Rscript computeRestrictionMap.R -h
 ```
 
+### Acknowledgements ###
+
+Thanks to Elzo de Wit for kindly sharing his source code and suggestions on the
+multi-resolution methods, and to Bas Tolhuis who greatly helped with Nimblegen
+tiling array data analyses, also sharing source code as well as unpublished
+biological data. Thanks to Jean-Philippe Villemin for testing the installation
+and execution of the complete workflow and reporting issues and suggestions.
+
 ### References ###
 
 <a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
