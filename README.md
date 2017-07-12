@@ -3,25 +3,26 @@ Chromosome Conformation Capture on Chip (4C): Data Processing
 
 ### Overview ###
 
-The `MiMB.4C` repository contains a collection of bash and R scripts
-implementing our data processing protocol for Chromosome Conformation Capture
-on Chip (4C).
-See [Leblanc et al., 2016](#1) for a brief background on the 4C technique
-itself and the detailed presentation of this protocol.
-For an extensive perspective on Chromosome Conformation Capture technologies,
-see for instance the review from [Denker & de Laat, 2016](#2).
+This repository contains a collection of `bash` and `R` scripts that were
+developped to analyze Chromosome Conformation Capture on Chip (4C) data,
+meaning the microarray version of 4C, which was employed in early genomic
+studies of chromosome conformation.
 
-Computational methods undelying this protocol consist in improved versions of
-the procedures used in the study from [Bantignies et al., 2011](#3).
-These methods, including normalization, probe selection and multi-resolution
-visualization and segmentation of the 4C profiles, are available via the
-standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA),
-whereas the scripts provided in the `MiMB.4C` repository illustrate a complete
-workflow for 4C data processing.
+The data analysis workflow consists in improved versions of the procedures we
+used in [Bantignies et al., 2011](#1), with methods addressing the selection
+and normalization of microarray probes, and the multi-resolution visualization
+and segmentation of 4C profiles, and which are available via the standalone R
+package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
+
+A detailed presentation of these methods as well as a brief introduction to
+the microarray version of the 4C technique itself can be found in
+[Leblanc et al., 2016](#2).
+For an extensive perspective on Chromosome Conformation Capture technologies,
+see for instance the review from [Denker & de Laat, 2016](#3).
 
 ### Examples ###
 
-Below are two example of results generated using the  `MiMB.4C` protocol based
+Below are two example of results generated using the  `MiMB.4C` workflow, based
 on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
 [Schoenfelder et al., 2009](#5) (bottom panel).
 
@@ -29,20 +30,23 @@ on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
 
 Both panels represent the mouse chromosome 7 on the horizontal axis and the
 resolution of analysis on the vertical axis, in number of microarray probes.
+
 Frequencies of interactions between the 4C bait sequence (which was targeting
 the beta globin locus in both studies) and remote sequences along the chromosome
 are indicated by colors, from light blue for the weakest levels to dark red for
 the strongest ones.
-
 More precisely, the colormaps represent statistical scores reflecting 4C
 interaction frequencies for each genomic location and considering resolutions
 ranging from single probe to approximately 5000 probes.
-The 3 tracks below each colormap show alternative segmentations of the
-significant interactions. From top to bottom: segmentation at maximal scale or 
-at maximal resolution resulting from our protocol, and segmentation reported in
-the original studies using former data analysis methods.
 
-A complete demo analysis based on the 4C data in *Drosophila* anterior larval
+The 3 tracks below each colormap show alternative segmentations of the
+significant interactions, indicating from top to bottom:  
+- the segmentation at maximal scale and at maximal resolution resulting from our
+protocol.  
+- the segmentation reported in original studies using former data
+analysis methods.
+
+A demo analysis based on the 4C data in *Drosophila* anterior larval
 tissues from [Bantignies et al., 2011](#3) can be run as indicated in the
 following sections.
 
@@ -97,6 +101,10 @@ if(length(lst) > 0) {
   source("https://bioconductor.org/biocLite.R")
   biocLite(lst)
 }
+
+# GitHub package
+library("devtools")
+install_github("benja0x40/MRA.TA")
 ```
 
 ### Content of MiMB.4C ###
@@ -159,7 +167,7 @@ if(length(lst) > 0) {
     Updated        => Updated microarray design data (new probes coordinates)
     Cleaned        => Updated array design filtered out for non-relevant probes
 
-### Getting information about bash and R script parameters ###
+#### 5. Getting information about bash and R script parameters ####
 
 Runinng `importGenome.sh` or `importRawData.sh` bash scripts without any
 parameters will show information about available parameters.
@@ -184,14 +192,14 @@ and execution of the complete workflow and reporting issues and suggestions.
 
 ### References ###
 
-<a name="1"></a>1. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
+<a name="1"></a>1. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
+[publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892)
+
+<a name="2"></a>2. Leblanc B., Comet I., Bantignies F., and Cavalli G., *Chromosome Conformation Capture on Chip (4C): data processing.* Book chapter in *Polycomb Group Proteins: Methods and Protocols.* Lanzuolo C., Bodega B. editors, Methods in Molecular Biology (2016).  
 [publisher](http://dx.doi.org/10.1007/978-1-4939-6380-5_21) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27659990)
 
-<a name="2"></a>2. Denker A. & de Laat W., *The second decade of 3C technologies: detailed insights into nuclear organization.* Genes & Development (2016).  
+<a name="3"></a>3. Denker A. & de Laat W., *The second decade of 3C technologies: detailed insights into nuclear organization.* Genes & Development (2016).  
 [publisher](http://dx.doi.org/10.1101/gad.281964.116) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/27340173)
-
-<a name="3"></a>3. Bantignies F., Roure V., Comet I., Leblanc B., Schuettengruber B., Bonnet J., Tixier V., Mas A., Cavalli G. *Polycomb-dependent regulatory contacts between distant Hox loci in Drosophila.* Cell (2011).  
-[publisher](http://dx.doi.org/10.1016/j.cell.2010.12.026) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/21241892)
 
 <a name="4"></a>4. Simonis M., Klous P., Splinter E., Moshkin Y., Willemsen R., de Wit E., van Steensel B., de Laat W. *Nuclear organization of active and inactive chromatin domains uncovered by chromosome conformation capture-on-chip (4C).* Nature Genetics (2006).  
 [publisher](http://dx.doi.org/10.1038/ng1896) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/17033623)
