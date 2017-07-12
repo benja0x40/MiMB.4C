@@ -147,7 +147,7 @@ install_github("benja0x40/MRA.TA")
   
   * `enrichmentAnalysis.R`
   
-    Workflow R script to be executed secondly (after `dataPreparation.sh`) when
+    Workflow script to be executed secondly (after `dataPreparation.sh`) when
     running the demo analysis.
     This script chains normalization, probes filtering and multi-resolution
     analysis of the 4C enrichments.
