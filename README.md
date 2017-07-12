@@ -45,7 +45,7 @@ approximately 5000 microarray probes.
 The 3 tracks below each colormap show alternative segmentations of the
 most significant interactions, indicating from top to bottom:  
 - a segmentation at maximal scale and at maximal resolution resulting from our
-protocol.  
+workflow.  
 - the segmentation reported in the original study using former data
 analysis methods.
 
