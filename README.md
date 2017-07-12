@@ -8,18 +8,18 @@ developped to analyze Chromosome Conformation Capture on Chip (4C) data,
 meaning the microarray version of 4C which was employed in early genomic
 studies of chromosome conformation.
 
-The data analysis workflow consists in improved versions of procedures we
-used in [Bantignies et al., 2011](#1), with methods addressing the selection
+The `MiMB.4C` data analysis workflow consists in improved versions of procedures
+we used in [Bantignies et al., 2011](#1), with methods addressing the selection
 and normalization of microarray probes, and the multi-resolution visualization
-and segmentation of 4C profiles, and which are directly accessible in the
-standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
+and segmentation of 4C profiles, which are directly accessible in the
+standalone `R` package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
 
 A detailed presentation of these methods as well as a brief introduction to
-the microarray version of the 4C technique itself can be found in
+the microarray version of the 4C technique can be found in
 [Leblanc et al., 2016](#2).
-To put this in the perspective of current Chromosome
-Conformation Capture (3C) methods and applications, one can for instance read the
-review from [Denker & de Laat, 2016](#3).
+To put this in the perspective of current Chromosome Conformation Capture (3C)
+methods and applications, one can for instance read the review from
+[Denker & de Laat, 2016](#3).
 
 ### Examples ###
 
@@ -55,7 +55,7 @@ following sections.
 
 ### Quick start ###
 
-1. Run the R code below to install the
+1. Run the `R` code below to install the
 [MRA.TA](https://github.com/benja0x40/MRA.TA) package.  
 If the installation fails, try to install dependencies manually as indicated
 in the next section.
@@ -119,7 +119,7 @@ install_github("benja0x40/MRA.TA")
   
   * `importRawData.sh`
   
-    Tool to download the demo 4C data from GEO.
+    Tool to download the demo 4C data from Gene Expression Omnibus (GEO).
   
   * `dataPreparation.sh`
   
