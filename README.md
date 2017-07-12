@@ -5,49 +5,52 @@ Chromosome Conformation Capture on Chip (4C): Data Processing
 
 This repository contains a collection of `bash` and `R` scripts that were
 developped to analyze Chromosome Conformation Capture on Chip (4C) data,
-meaning the microarray version of 4C, which was employed in early genomic
+meaning the microarray version of 4C which was employed in early genomic
 studies of chromosome conformation.
 
-The data analysis workflow consists in improved versions of the procedures we
+The data analysis workflow consists in improved versions of procedures we
 used in [Bantignies et al., 2011](#1), with methods addressing the selection
 and normalization of microarray probes, and the multi-resolution visualization
-and segmentation of 4C profiles, and which are available via the standalone R
-package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
+and segmentation of 4C profiles, and which are directly accessible in the
+standalone R package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
 
 A detailed presentation of these methods as well as a brief introduction to
 the microarray version of the 4C technique itself can be found in
 [Leblanc et al., 2016](#2).
-For an extensive perspective on Chromosome Conformation Capture technologies,
-see for instance the review from [Denker & de Laat, 2016](#3).
+To put this in the perspective of current Chromosome
+Conformation Capture (3C) methods and applications, one can for instance read the
+review from [Denker & de Laat, 2016](#3).
 
 ### Examples ###
 
-Below are two example of results generated using the  `MiMB.4C` workflow, based
+The figure below shows results produced using the `MiMB.4C` workflow, based
 on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
 [Schoenfelder et al., 2009](#5) (bottom panel).
 
 ![](./images/examples/MiMB.4C_Examples_smallsize.png "")
 
-Both panels represent the mouse chromosome 7 on the horizontal axis and the
-resolution of analysis on the vertical axis, in number of microarray probes.
+Each panel represents the mouse chromosome 7 on the horizontal axis and the
+resolution of analysis on the vertical axis, in number of microarray probes
+(_w_).
+In both studies the 4C "bait" or "anchor" sequence was targeting
+the beta globin locus (**Hbb**, dotted green line).
 
-Frequencies of interactions between the 4C bait sequence (which was targeting
-the beta globin locus in both studies) and remote sequences along the chromosome
-are indicated by colors, from light blue for the weakest levels to dark red for
-the strongest ones.
-More precisely, the colormaps represent statistical scores reflecting 4C
-interaction frequencies for each genomic location and considering resolutions
-ranging from single probe to approximately 5000 probes.
+The frequencies of interactions between the Hbb locus and remote locations along
+the chromosome are indicated by colors, from light blue for the weakest levels
+to dark red for the strongest ones.
+More precisely, these colormaps represent a statistical score at each genomic
+location and considering resolutions of analysis ranging from one to
+approximately 5000 microarray probes.
 
 The 3 tracks below each colormap show alternative segmentations of the
-significant interactions, indicating from top to bottom:  
-- the segmentation at maximal scale and at maximal resolution resulting from our
+most significant interactions, indicating from top to bottom:  
+- a segmentation at maximal scale and at maximal resolution resulting from our
 protocol.  
-- the segmentation reported in original studies using former data
+- the segmentation reported in the original study using former data
 analysis methods.
 
-A demo analysis based on the 4C data in *Drosophila* anterior larval
-tissues from [Bantignies et al., 2011](#3) can be run as indicated in the
+A demo analysis with 4C data in *Drosophila* anterior larval tissues
+from [Bantignies et al., 2011](#3) can be run as indicated in the
 following sections.
 
 ### Quick start ###
@@ -64,8 +67,7 @@ install_github("benja0x40/MRA.TA")
 
 2. Clone or download and decompress the `MiMB.4C` repository.
 
-
-3. Run the demo in a terminal (bash), with current working directory at the
+3. Run the demo in a terminal (`bash`), with current working directory at the
 root of the decompressed `MiMB.4C` folder.
 
 ```bash
@@ -80,10 +82,10 @@ Rscript enrichmentAnalysis.R
   - CRAN packages `devtools`, `stringr`, `getopt`, `plotrix`
   - [Bioconductor](http://www.bioconductor.org/) packages
     `Biostrings`, `GenomicRanges`
-  - GitHub R package [MRA.TA](https://github.com/benja0x40/MRA.TA)
+  - GitHub `R` package [MRA.TA](https://github.com/benja0x40/MRA.TA)
 
-Run the R code below to install CRAN and Bioconductor package dependencies
-for `MiMB.4C`.
+Run the `R` code below to install CRAN, Bioconductor and GitHub package
+dependencies for `MiMB.4C`.
 
 ```R
 # Already installed
@@ -113,15 +115,15 @@ install_github("benja0x40/MRA.TA")
 
   * `importGenome.sh`
   
-    Tool for automated download of UCSC genomes and index creation for bowtie.
+    Tool to download a genome sequence from UCSC and create its `bowtie` index.
   
   * `importRawData.sh`
   
-    Tool to facilitate downloading of the 4C data used for demo from GEO.
+    Tool to download the demo 4C data from GEO.
   
   * `dataPreparation.sh`
   
-    Workflow bash script to be executed first when running the demo analysis.
+    Workflow script to be executed first when running the demo analysis.
     This script chains several operations:
     importing genome sequence and raw data, updating micro array design probes
     to the lastest (dm6) genome assembly, filtering out non-experimental probes,
@@ -132,24 +134,25 @@ install_github("benja0x40/MRA.TA")
 
   * `updateDesignData.R`
   
-    Tool to update micro array design information for new genome releases. This
-    tool uses the bowtie alignment software to map probe sequences on a chosen
-    assembly of the genome for a precise update of genomic coordinates
-    addressed by the microarray platform.
+    Tool to update micro array design information for any genome release.
+    This tool uses `bowtie` to map probe sequences on a chosen genome assembly 
+    and updates genomic coordinates addressed by the microarray platform
+    accordingly.
     
   * `computeRestrictionMap.R`
   
     Tool to compute the genomic coordinates of all restriction sites for a given
-    restriction enzyme. Restriction sites are defined by the short DNA motif
-    (4 to 6bp in common protocols) specifically targeted by the enzyme.
+    restriction enzyme. Restriction sites are defined by the short DNA motif,
+    commonly 4 to 6bp in 4C protocols, specifically targeted by the enzyme.
   
   * `enrichmentAnalysis.R`
   
-    Workflow R script to be executed secondly (after dataPreparation.sh) when
+    Workflow R script to be executed secondly (after `dataPreparation.sh`) when
     running the demo analysis.
     This script chains normalization, probes filtering and multi-resolution
-    analysis of the 4C enrichments (see the first reference in section E
-    below for more informations).
+    analysis of the 4C enrichments.
+    
+    For further details see [Leblanc et al., 2016](#2).
   
 #### 3. File organisation (before execution) ####
 
@@ -172,9 +175,9 @@ install_github("benja0x40/MRA.TA")
 Runinng `importGenome.sh` or `importRawData.sh` bash scripts without any
 parameters will show information about available parameters.
 The standalone R scripts `updateDesignData.R` and `computeRestrictionMap.R` can
-also provide help on available parameters by using the option -h.
+also provide help on available parameters by using the option `-h`.
 
-For example (in the terminal):
+For instance, using the terminal:
 
 ```bash
 ./importGenome.sh
