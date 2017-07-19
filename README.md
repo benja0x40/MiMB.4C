@@ -9,7 +9,7 @@ meaning the microarray version of 4C which was employed in early genomic
 studies of chromosome conformations.
 
 This data analysis workflow (named `MiMB.4C`) consists in improved versions
-of the procedures we used in [Bantignies et al., 2011](#1), with methods
+of the procedures we used in [Bantignies _et al_. 2011](#1), with methods
 addressing the selection and normalization of microarray probes,
 and the multi-resolution visualization and segmentation of 4C profiles,
 which are directly accessible in the standalone `R` package
@@ -17,16 +17,16 @@ which are directly accessible in the standalone `R` package
 
 A detailed presentation of these methods as well as a brief introduction to
 the microarray version of the 4C technique can be found in
-[Leblanc et al., 2016](#2).
+[Leblanc _et al_. 2016](#2).
 To put this in the perspective of Chromosome Conformation Capture (3C)
 methods and applications, one can for instance read the review from
-[Denker & de Laat, 2016](#3).
+[Denker & de Laat 2016](#3).
 
 ### Examples ###
 
 The figure below shows results produced using the `MiMB.4C` workflow
-with 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
-[Schoenfelder et al., 2009](#5) (bottom panel).
+with 4C data in mouse from [Simonis _et al_. 2006](#4) (top panel) and
+[Schoenfelder _et al_. 2009](#5) (bottom panel).
 
 ![](./images/examples/MiMB.4C_Examples_smallsize.png "")
 
@@ -39,7 +39,7 @@ the beta globin locus (**Hbb**, dotted green line).
 The frequencies of interactions between the Hbb locus and remote locations along
 the chromosome are indicated by colors, from light blue for the weakest to dark
 red for the strongest ones, representing the multi-resolution statistics
-proposed in [de Wit et al., 2008](#6).
+proposed in [de Wit _et al_. 2008](#6).
 
 The 3 tracks below each colormap show alternative segmentations of the
 most significant interactions, indicating from top to bottom:  
@@ -49,7 +49,7 @@ workflow.
 analysis methods.
 
 The following sections describe how to run the `MiMB.4C` workflow using 4C data
-in *Drosophila* anterior larval tissues from [Bantignies et al., 2011](#3).
+in *Drosophila* anterior larval tissues from [Bantignies _et al_. 2011](#3).
 
 ### Quick start ###
 
@@ -150,7 +150,7 @@ install_github("benja0x40/MRA.TA")
     This script chains normalization, probes filtering and multi-resolution
     analysis of the 4C enrichments.
     
-    For further details see [Leblanc et al., 2016](#2).
+    For further details see [Leblanc _et al_. 2016](#2).
   
 #### 3. File organisation (before execution) ####
 
@@ -162,7 +162,7 @@ install_github("benja0x40/MRA.TA")
     Genome_Data    => UCSC genome data and corresponding bowtie indexes
     UCSC_dm6       => dm6 assembly of the Drosophila melanogaster genome
     Raw_Data       => Raw 4C data
-    GSE23887_RAW   => 4C data from Bantignies et al., 2011
+    GSE23887_RAW   => 4C data from Bantignies et al. 2011
     Processed_Data => Pre-processed 4C data
     RestrictionMap => Coordinates of restriction fragments
     Updated        => Updated microarray design data (new probes coordinates)
