@@ -123,9 +123,9 @@ $(document).ready(function () {
 <h1>Chromosome Conformation Capture on Chip (4C): Data Processing</h1>
 <div id="overview" class="section level3">
 <h3>Overview</h3>
-<p>This repository contains a collection of <code>bash</code> and <code>R</code> scripts that were developped to analyze Chromosome Conformation Capture on Chip (4C) data, meaning the microarray version of 4C which was employed in early genomic studies of chromosome conformation.</p>
-<p>The <code>MiMB.4C</code> data analysis workflow consists in improved versions of procedures we used in <a href="#1">Bantignies et al., 2011</a>, with methods addressing the selection and normalization of microarray probes, and the multi-resolution visualization and segmentation of 4C profiles, which are directly accessible in the standalone <code>R</code> package <a href="https://github.com/benja0x40/MRA.TA">MRA.TA</a>.</p>
-<p>A detailed presentation of these methods as well as a brief introduction to the microarray version of the 4C technique can be found in <a href="#2">Leblanc et al., 2016</a>. To put this in the perspective of current Chromosome Conformation Capture (3C) methods and applications, one can for instance read the review from <a href="#3">Denker &amp; de Laat, 2016</a>.</p>
+<p>This repository contains a collection of <code>bash</code> and <code>R</code> scripts that were developped to analyze Chromosome Conformation Capture on Chip (4C) data, meaning the microarray version of 4C which was employed in early genomic studies of chromosome conformations.</p>
+<p>This data analysis workflow (named <code>MiMB.4C</code>) consists in improved versions of the procedures we used in <a href="#1">Bantignies et al., 2011</a>, with methods addressing the selection and normalization of microarray probes, and the multi-resolution visualization and segmentation of 4C profiles, which are directly accessible in the standalone <code>R</code> package <a href="https://github.com/benja0x40/MRA.TA">MRA.TA</a>.</p>
+<p>A detailed presentation of these methods as well as a brief introduction to the microarray version of the 4C technique can be found in <a href="#2">Leblanc et al., 2016</a>. To put this in the perspective of Chromosome Conformation Capture (3C) methods and applications, one can for instance read the review from <a href="#3">Denker &amp; de Laat, 2016</a>.</p>
 </div>
 <div id="examples" class="section level3">
 <h3>Examples</h3>
@@ -135,11 +135,11 @@ $(document).ready(function () {
 
 </div>
 <p>Each panel represents the mouse chromosome 7 on the horizontal axis and the resolution of analysis on the vertical axis, in number of microarray probes (<em>w</em>). In both studies the 4C “bait” or “anchor” sequence was targeting the beta globin locus (<strong>Hbb</strong>, dotted green line).</p>
-<p>The frequencies of interactions between the Hbb locus and remote locations along the chromosome are indicated by colors, from light blue for the weakest levels to dark red for the strongest ones. More precisely, these colormaps represent a statistical score at each genomic location and considering resolutions of analysis ranging from one to approximately 5000 microarray probes.</p>
+<p>The frequencies of interactions between the Hbb locus and remote locations along the chromosome are indicated by colors, from light blue for the weakest to dark red for the strongest ones, representing the multi-resolution statistics proposed in <a href="#6">de Wit et al., 2008</a>.</p>
 <p>The 3 tracks below each colormap show alternative segmentations of the most significant interactions, indicating from top to bottom:<br />
-- a segmentation at maximal scale and at maximal resolution resulting from our protocol.<br />
+- a segmentation at maximal scale and at maximal resolution resulting from our workflow.<br />
 - the segmentation reported in the original study using former data analysis methods.</p>
-<p>A demo analysis with 4C data in <em>Drosophila</em> anterior larval tissues from <a href="#3">Bantignies et al., 2011</a> can be run as indicated in the following sections.</p>
+<p>The following sections describe how to run the <code>MiMB.4C</code> workflow using 4C data in <em>Drosophila</em> anterior larval tissues from <a href="#3">Bantignies et al., 2011</a>.</p>
 </div>
 <div id="quick-start" class="section level3">
 <h3>Quick start</h3>
@@ -207,7 +207,7 @@ install_github(&quot;benja0x40/MRA.TA&quot;)</code></pre>
 <li><p><code>computeRestrictionMap.R</code></p>
 <p>Tool to compute the genomic coordinates of all restriction sites for a given restriction enzyme. Restriction sites are defined by the short DNA motif, commonly 4 to 6bp in 4C protocols, specifically targeted by the enzyme.</p></li>
 <li><p><code>enrichmentAnalysis.R</code></p>
-<p>Workflow R script to be executed secondly (after <code>dataPreparation.sh</code>) when running the demo analysis. This script chains normalization, probes filtering and multi-resolution analysis of the 4C enrichments.</p>
+<p>Workflow script to be executed secondly (after <code>dataPreparation.sh</code>) when running the demo analysis. This script chains normalization, probes filtering and multi-resolution analysis of the 4C enrichments.</p>
 <p>For further details see <a href="#2">Leblanc et al., 2016</a>.</p></li>
 </ul>
 </div>
@@ -252,6 +252,8 @@ Rscript computeRestrictionMap.R -h</code></pre>
 <a href="http://dx.doi.org/10.1038/ng1896">publisher</a> | <a href="https://www.ncbi.nlm.nih.gov/pubmed/17033623">pubmed</a></p>
 <p><a name="5"></a>5. Schoenfelder S., Sexton T., Chakalova L., Cope N.F., Horton A., Andrews S., Kurukuti S., Mitchell J.A., Umlauf D., Dimitrova D.S., Eskiw C.H., Luo Y., Wei C.L., Ruan Y., Bieker J.J, Fraser P. <em>Preferential associations between co-regulated genes reveal a transcriptional interactome in erythroid cells.</em> Nature Genetics (2009).<br />
 <a href="http://dx.doi.org/10.1038/ng.496">publisher</a> | <a href="https://www.ncbi.nlm.nih.gov/pubmed/20010836">pubmed</a></p>
+<p><a name="6"></a>6. de Wit E., Braunschweig U., Greil F., Bussemaker H. J. &amp; van Steensel B. <em>Global chromatin domain organization of the Drosophila genome.</em> PLoS Genetics (2008).<br />
+<a href="http://dx.doi.org/10.1371/journal.pgen.1000045">publisher</a> | <a href="https://www.ncbi.nlm.nih.gov/pubmed/18369463">pubmed</a></p>
 </div>
 </div>
 

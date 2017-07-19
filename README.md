@@ -6,18 +6,19 @@ Chromosome Conformation Capture on Chip (4C): Data Processing
 This repository contains a collection of `bash` and `R` scripts that were
 developped to analyze Chromosome Conformation Capture on Chip (4C) data,
 meaning the microarray version of 4C which was employed in early genomic
-studies of chromosome conformation.
+studies of chromosome conformations.
 
-The `MiMB.4C` data analysis workflow consists in improved versions of procedures
-we used in [Bantignies et al., 2011](#1), with methods addressing the selection
-and normalization of microarray probes, and the multi-resolution visualization
-and segmentation of 4C profiles, which are directly accessible in the
-standalone `R` package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
+This data analysis workflow (named `MiMB.4C`) consists in improved versions
+of the procedures we used in [Bantignies et al., 2011](#1), with methods
+addressing the selection and normalization of microarray probes,
+and the multi-resolution visualization and segmentation of 4C profiles,
+which are directly accessible in the standalone `R` package
+[MRA.TA](https://github.com/benja0x40/MRA.TA). 
 
 A detailed presentation of these methods as well as a brief introduction to
 the microarray version of the 4C technique can be found in
 [Leblanc et al., 2016](#2).
-To put this in the perspective of current Chromosome Conformation Capture (3C)
+To put this in the perspective of Chromosome Conformation Capture (3C)
 methods and applications, one can for instance read the review from
 [Denker & de Laat, 2016](#3).
 
@@ -36,11 +37,9 @@ In both studies the 4C "bait" or "anchor" sequence was targeting
 the beta globin locus (**Hbb**, dotted green line).
 
 The frequencies of interactions between the Hbb locus and remote locations along
-the chromosome are indicated by colors, from light blue for the weakest levels
-to dark red for the strongest ones.
-More precisely, these colormaps represent a statistical score at each genomic
-location and considering resolutions of analysis ranging from one to
-approximately 5000 microarray probes.
+the chromosome are indicated by colors, from light blue for the weakest to dark
+red for the strongest ones, representing the multi-resolution statistics
+proposed in [de Wit et al., 2008](#6).
 
 The 3 tracks below each colormap show alternative segmentations of the
 most significant interactions, indicating from top to bottom:  
@@ -49,9 +48,8 @@ workflow.
 - the segmentation reported in the original study using former data
 analysis methods.
 
-A demo analysis with 4C data in *Drosophila* anterior larval tissues
-from [Bantignies et al., 2011](#3) can be run as indicated in the
-following sections.
+The following sections describe how to run the `MiMB.4C` workflow using 4C data
+in *Drosophila* anterior larval tissues from [Bantignies et al., 2011](#3).
 
 ### Quick start ###
 
@@ -210,3 +208,5 @@ and execution of the complete workflow and reporting issues and suggestions.
 <a name="5"></a>5. Schoenfelder S., Sexton T., Chakalova L., Cope N.F., Horton A., Andrews S., Kurukuti S., Mitchell J.A., Umlauf D., Dimitrova D.S., Eskiw C.H., Luo Y., Wei C.L., Ruan Y., Bieker J.J, Fraser P. *Preferential associations between co-regulated genes reveal a transcriptional interactome in erythroid cells.* Nature Genetics (2009).  
 [publisher](http://dx.doi.org/10.1038/ng.496) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/20010836)
 
+<a name="6"></a>6. de Wit E., Braunschweig U., Greil F., Bussemaker H. J. & van Steensel B. *Global chromatin domain organization of the Drosophila genome.* PLoS Genetics (2008).  
+[publisher](http://dx.doi.org/10.1371/journal.pgen.1000045) | [pubmed](https://www.ncbi.nlm.nih.gov/pubmed/18369463)
