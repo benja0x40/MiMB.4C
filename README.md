@@ -24,8 +24,8 @@ methods and applications, one can for instance read the review from
 
 ### Examples ###
 
-The figure below shows results produced using the `MiMB.4C` workflow, based
-on 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
+The figure below shows results produced using the `MiMB.4C` workflow
+with 4C data in mouse from [Simonis et al., 2006](#4) (top panel) and
 [Schoenfelder et al., 2009](#5) (bottom panel).
 
 ![](./images/examples/MiMB.4C_Examples_smallsize.png "")
