@@ -8,12 +8,11 @@ developped to analyze Chromosome Conformation Capture on Chip (4C) data,
 meaning the microarray version of 4C which was employed in early genomic
 studies of chromosome conformations.
 
-This data analysis workflow (named `MiMB.4C`) consists in improved versions
-of the procedures we used in [Bantignies _et al_. 2011](#1), with methods
-addressing the selection and normalization of microarray probes,
-and the multi-resolution visualization and segmentation of 4C profiles,
-which are directly accessible in the standalone `R` package
-[MRA.TA](https://github.com/benja0x40/MRA.TA). 
+The data processing workflow is built upon improved versions of the procedures
+we used in [Bantignies _et al_. 2011](#1), with methods addressing the selection
+and normalization of microarray probes, and the multi-resolution visualization
+and segmentation of 4C profiles, which are directly accessible in the standalone
+`R` package [MRA.TA](https://github.com/benja0x40/MRA.TA). 
 
 A detailed presentation of these methods as well as a brief introduction to
 the microarray version of the 4C technique can be found in
